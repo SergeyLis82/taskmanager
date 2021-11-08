@@ -1,0 +1,18 @@
+{% extends 'main/base.html' %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+<h3>Home</h3>
+{% if tasks %}
+    {% for task in tasks %}
+    <div class="alert alert-warning mt-2">
+        <h4>{{ task.title }}</h4>
+        <p>{{ task.task|linebreaks }}</p>
+        <p>{{ task.create_date }} | {{task.create_time}}</p>
+    </div>
+    {% endfor %}
+{% else %}
+    <p>Активных задач нет.</p>
+{% endif %}
+{% endblock %}
